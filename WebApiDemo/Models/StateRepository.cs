@@ -59,5 +59,28 @@ namespace WebApiDemo.Models
             command.Dispose();
             _sqlConnection.Close();
         }
+
+        public void DeleteState(int id)
+        {
+            _sqlConnection.Open();
+            SqlCommand command = new SqlCommand("spDeleteState", _sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@pStateId", id);
+            command.ExecuteNonQuery();
+            command.Dispose();
+            _sqlConnection.Close();
+        }
+
+        public void EditState(States state)
+        {
+            _sqlConnection.Open();
+            SqlCommand command = new SqlCommand("spUpdateState", _sqlConnection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@pStateId", state.StateId);
+            command.Parameters.AddWithValue("@pStateName", state.StateName);
+            command.ExecuteNonQuery();
+            command.Dispose();
+            _sqlConnection.Close();
+        }
     }
 }

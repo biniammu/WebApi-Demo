@@ -31,13 +31,15 @@ namespace WebApiDemo.Controllers
         }
 
         // PUT: api/State/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]States state)
         {
+            stateRepository.EditState(state);
         }
 
         // DELETE: api/State/5
         public void Delete(int id)
         {
+            stateRepository.DeleteState(id);
         }
     }
 }
