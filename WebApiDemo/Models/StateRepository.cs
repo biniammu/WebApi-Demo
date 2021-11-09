@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using WebApiDemo.Models;
 
-namespace WebApiDemo
+namespace WebApiDemo.Models
 {
     public class StateRepository
     {
